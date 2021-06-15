@@ -58,6 +58,7 @@ function calcDarkFlow(){
 	if (tmp.ach[75].has) tmp.dc.flow = tmp.dc.flow.times(1.1);
 	if (tmp.ach[83].has) tmp.dc.flow = tmp.dc.flow.times(1.2);
 	if (tmp.ach[131].has) tmp.dc.flow = tmp.dc.flow.times(1.5);
+	if(modeActive("super_easy"))tmp.dc.flow = tmp.dc.flow.times(5);
 	if (player.tr.upgrades.includes(11) && !HCCBA("noTRU")) tmp.dc.flow = tmp.dc.flow.times(tr11Eff()["dcf"]);
 	if (player.tr.upgrades.includes(12) && !HCCBA("noTRU")) tmp.dc.flow = tmp.dc.flow.times(tr12Eff());
 	if (tmp.inf) {

@@ -288,10 +288,6 @@ function setupHTML() {
 	let v = new Element("version")
 	v.setTxt(player.version)
 	
-	// Main Link
-	let span = new Element("linkToGame")
-	span.setHTML((betaID==""&&!window.location.href.includes(correctLink))?"Please migrate to <a href='http://"+correctLink+"/DistInc.github.io/main.html'>"+correctLink+"</a><br>":"")
-	
 	// Element Setup
 	tmp.el = {}
 	let all = document.getElementsByTagName("*")

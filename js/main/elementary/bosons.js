@@ -206,6 +206,7 @@ function updateTempGauge() {
 	if (player.elementary.entropy.upgrades.includes(15)) tmp.elm.bos.forceEff = tmp.elm.bos.forceEff.pow(5)
 	if (player.elementary.sky.unl && tmp.elm.sky) tmp.elm.bos.forceEff = tmp.elm.bos.forceEff.pow(tmp.elm.sky.spinorEff[11])
 	if (modeActive("easy")) tmp.elm.bos.forceEff = tmp.elm.bos.forceEff.times(2);
+	if(modeActive("super_easy")) tmp.elm.bos.forceEff = tmp.elm.bos.forceEff.times(4);
 	if (ExpantaNum.gte(player.elementary.theory.tree.upgrades[41]||0, 1) && hasDE(6)) tmp.elm.bos.forceEff = tmp.elm.bos.forceEff.times(TREE_UPGS[41].effect(player.elementary.theory.tree.upgrades[41]||0))
 	let gaugeSpeed = new ExpantaNum(tmp.elm.bos.forceEff);
 
@@ -271,6 +272,7 @@ function updateTempScalar() {
 	if (tmp.inf510) tmp.elm.bos.higgsGain = tmp.elm.bos.higgsGain.times(INF_UPGS.effects["5;10"]().hb);
 	if (player.elementary.theory.tree.unl) tmp.elm.bos.higgsGain = tmp.elm.bos.higgsGain.times(TREE_UPGS[2].effect(player.elementary.theory.tree.upgrades[2]||0))
 	if (modeActive("easy")) tmp.elm.bos.higgsGain = tmp.elm.bos.higgsGain.times(10)
+	if (modeActive("super_easy")) tmp.elm.bos.higgsGain = tmp.elm.bos.higgsGain.times(1e10)
 	if (!tmp.elm.bos.buyHiggs) tmp.elm.bos.buyHiggs = function(id) {
 		let data = HIGGS_UPGS[id]
 		if (player.elementary.bosons.scalar.higgs.amount.lt(data.cost) || player.elementary.bosons.scalar.higgs.upgrades.includes(id)) return

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <head>
-	<title>Distance Incremental</title>
 	<link rel="icon" href="images/game_icon.ico" type="image/icon type" />
 </head>
 <body id="body" onload="loadGame()">
@@ -88,7 +87,7 @@
 	<div id="mainContainer" style="display: none">
 		<div class="band lb" style="min-height: 100px;">
 			<button id="mltReset" class="btn locked" onclick="mltReset()"></button>
-			<p class="halfline">&nbsp;</p><span id="linkToGame"></span><span id="nextFeature"></span><p class="halfline">&nbsp;</p>
+			<p class="halfline">&nbsp;</p><span id="nextFeature"></span><p class="halfline">&nbsp;</p>
 			<div id="newsticker"><div id="news"></div></div><br>
 			<div style="overflow-x: auto;">
 				<table>
@@ -260,6 +259,9 @@
 							</td>
 							<td>
 								<button id="hikers_dreamMode" class="btn tb opt ob" onclick="selectMode('hikers_dream')" style="z-index: 0">Hiker's Dream</button>
+							</td>
+              <td>
+								<button id="super_easyMode" class="btn tb opt ob" onclick="selectMode('super_easy')" style="z-index: 0">Super Easy</button>
 							</td>
 						</tr>
 					</table>
@@ -2446,7 +2448,7 @@
 	<script type="text/javascript" src="js/main/misc.js"></script>
 	<script type="text/javascript" src="js/main/timeSpeed.js"></script>
 	<script type="text/javascript" src="js/main/hd.js"></script>
-
+  <script type="text/javascript" src="js/main/mode.js"></script>
 	<!-- Extreme Mode File Data -->
 
 	<script type="text/javascript" src="js/main/extreme/rankCheap.js"></script>

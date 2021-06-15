@@ -86,6 +86,7 @@ function updateElementaryLayer() {
 		if (player.elementary.foam.unl && tmp.elm.qf) gain = gain.times(tmp.elm.qf.boost12) // not affected by softcap hehe
 	
 		if (modeActive("extreme")) gain = gain.div(3).plus(gain.gte(1)?1:0)
+		if(modeActive("super_easy"))gain=gain.mul(100)
 		return gain.floor();
 	});
 	tmp.elm.layer = new Layer("elementary", tmp.elm.can, "multi-res", true, "elm");

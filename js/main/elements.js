@@ -16,6 +16,7 @@ function calcModeAndBalanceName(modes) {
 		balanceName += "na_";
 	}
 	if (modes.includes("easy")) {
+		if(modes.includes("super_easy")) modeName += "Super "
 		if (modes.includes("hard")) modeName += "Easy-";
 		else modeName += "Easy ";
 		balanceName += "easy_";

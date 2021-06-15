@@ -55,6 +55,7 @@ function calcCollapseSacEff(){
 	tmp.collapse.sacEff = new ExpantaNum(1);
 	if (modeActive("hard")) tmp.collapse.sacEff = tmp.collapse.sacEff.div(1.4);
 	if (modeActive("easy")) tmp.collapse.sacEff = tmp.collapse.sacEff.times(1.6);
+	if(modeActive("super-easy"))tmp.collapse.sacEff = tmp.collapse.sacEff.times(2);
 	if (tmp.pathogens && player.pathogens.unl) tmp.collapse.sacEff = tmp.collapse.sacEff.times(tmp.pathogens[6].eff());
 }
 
@@ -124,6 +125,7 @@ function getCadaverGainMult() {
 	if (modeActive("extreme") && FCComp(5)) mult = mult.times(ExpantaNum.pow(2, player.furnace.upgrades[4].times(tmp.fn ? tmp.fn.upgPow : 1)))
 	if (tmp.ach[68].has && modeActive("extreme")) mult = mult.times(5);
 	if (tmp.collapse) if (modeActive("easy")) mult = mult.times(3);
+	if(modeActive("super_easy"))mult = mult.times(2);
 	if (tmp.elm) if (player.elementary.times.gt(0)) mult = mult.times(tmp.elm.ferm.quarkR("down").max(1));
 	return mult
 }

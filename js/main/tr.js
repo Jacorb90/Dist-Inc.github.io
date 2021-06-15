@@ -12,6 +12,7 @@ function getTimeCubeGain() {
 	let gain = new ExpantaNum(1);
 	if (modeActive("hard")) gain = gain.div(3);
 	if (modeActive("easy")) gain = gain.times(5).times(player.pathogens.amount.plus(1));
+	if(modeActive("super_easy")) gain=gain.times(100);
 	if (player.tr.upgrades.includes(1) && !HCCBA("noTRU")) gain = gain.times(tr1Eff());
 	if (player.tr.upgrades.includes(4) && !HCCBA("noTRU")) gain = gain.times(tr4Eff());
 	if (tmp.ach[55].has) gain = gain.times(1.1);

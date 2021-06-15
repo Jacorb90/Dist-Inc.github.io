@@ -10,6 +10,7 @@ function getFreeFuel() {
 
 function getFuelEff() {
 	let rf = player.rf;
+	if(modeActive("super_easy"))rf=rf.times(1.5)
 	if (modeActive("extreme") && rf.gte(10)) rf = rf.log10().times(10);
 	let trf = rf
 		.plus(getFreeFuel())

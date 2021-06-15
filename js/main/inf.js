@@ -192,6 +192,7 @@ function calcKnowledgeGain(){
 	if (tmp.ach[112].has) tmp.inf.knowledgeGain = tmp.inf.knowledgeGain.times(ach112Eff())
 	if (player.elementary.theory.tree.unl && player.elementary.theory.active) tmp.inf.knowledgeGain = tmp.inf.knowledgeGain.times(TREE_UPGS[7].effect(ExpantaNum.add(player.elementary.theory.tree.upgrades[7]||0, TREE_UPGS[11].effect(player.elementary.theory.tree.upgrades[11]||0))).plus(1).pow(10))
 	if (modeActive('easy')) tmp.inf.knowledgeGain = tmp.inf.knowledgeGain.times(5)
+	if(modeActive("super_easy")) tmp.inf.knowledgeGain = tmp.inf.knowledgeGain.times(10)
 	if (modeActive("hard") && tmp.fn) tmp.inf.knowledgeGain = tmp.inf.knowledgeGain.times(tmp.fn.enh.moltBrEff2)
 	if (modeActive("hikers_dream") && player.elementary.bosons.scalar.higgs.upgrades.includes("2;2;1")) tmp.inf.knowledgeGain = tmp.inf.knowledgeGain.times(player.energy)
 }
@@ -365,6 +366,7 @@ function updateTempAscension() {
 		if (tmp.elm.pa.active) tmp.inf.asc.perkTime = tmp.inf.asc.perkTime.div(tmp.elm.pa.speedBoost.max(1))
 	} else tmp.inf.asc.perkTime = tmp.inf.asc.perkTime.div(tmp.inf.asc.perkTimeO.div(10))
 	if (modeActive("easy")) tmp.inf.asc.perkTime = tmp.inf.asc.perkTime.times(3)
+	if(modeActive("super_easy")) tmp.inf.asc.perkTime = tmp.inf.asc.perkTime.times(3)
 	tmp.inf.asc.maxPerks = 1;
 	if (tmp.inf.upgs.has("6;6")) tmp.inf.asc.maxPerks = 2;
 	if (tmp.ach[103].has) tmp.inf.asc.maxPerks++;
@@ -418,6 +420,7 @@ function updateTempAscension() {
 		if (tmp.elm.bos.hasHiggs("0;0;4")) tmp.inf.asc.powerGain = tmp.inf.asc.powerGain.times(tmp.elm.bos["higgs_0;0;4"]())
 	}
 	if (modeActive('easy')) tmp.inf.asc.powerGain = tmp.inf.asc.powerGain.times(3)
+	if(modeActive("super_easy"))  tmp.inf.asc.powerGain = tmp.inf.asc.powerGain.times(3)
 	if (player.elementary.foam.unl && tmp.elm) tmp.inf.asc.powerGain = tmp.inf.asc.powerGain.times(tmp.elm.qf.boost14)
 	if (!tmp.inf.asc.activatePerk) tmp.inf.asc.activatePerk = function (n) {
 		if (player.inf.endorsements.lt(10) || (mltActive(3) && !player.mlt.mlt3selected.includes("ascension"))) return;
@@ -945,6 +948,7 @@ function updateTempDerivatives() {
 	}
 	tmp.inf.derv.boostMult = new ExpantaNum(Number.MAX_VALUE);
 	if (modeActive('easy')) tmp.inf.derv.boostMult = tmp.inf.derv.boostMult.pow(1.25)
+	if(modeActive("super_easy")) tmp.inf.derv.boostMult = tmp.inf.derv.boostMult.pow(1.25)
 	if (tmp.inf.upgs.has("9;7")) tmp.inf.derv.boostMult = tmp.inf.derv.boostMult.times(INF_UPGS.effects["9;7"]());
 	if (modeActive("extreme") && tmp.fn) if (tmp.fn.pl.unl) tmp.inf.derv.boostMult = tmp.inf.derv.boostMult.times(tmp.fn.pl.boosts[6])
 	tmp.inf.derv.boostMult = tmp.inf.derv.boostMult.pow(tmp.inf.derv.boostPow);

@@ -401,6 +401,7 @@ const MODES = {
 	},
 	easy: {
 		desc: "This mode is easier & faster to help you reach the end faster.",
+		dis: ["super_easy"]
 	},
 	extreme: {
 		desc: "This mode is an extension of Hard Mode that makes it even more difficult, however adds The Furnace (a new feature) to compensate for this.",
@@ -409,6 +410,10 @@ const MODES = {
 	hikers_dream: {
 		desc: "You have to climb up a hill that gets steeper and steeper as you go (making progress slow down drastically), however there are new buffs to compensate for this steep hill.",
 	},
+	super_easy: {
+		desc: "easy but easier.",
+		ext: ["easy"]
+	}
 };
 
 const MODE_TABLE_DATA = {

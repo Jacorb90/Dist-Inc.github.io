@@ -2,6 +2,7 @@ function getRocketSoftcapStart() {
 	let sc = new ExpantaNum(LAYER_SC["rockets"]);
 	if (modeActive("hard")) sc = new ExpantaNum(1)
 	if (modeActive("easy")) sc = sc.times(1.1).round();
+	if(modeActive("super_easy")) sc=sc.times(1.5).round();
 	if (tmp.pathogens && player.pathogens.unl) sc = sc.times(tmp.pathogens[7].eff())
 	return sc
 }
@@ -10,6 +11,7 @@ function getRocketEffectSoftcapStart() {
 	let sc = new ExpantaNum(5);
 	if (modeActive("hard")) sc = sc.sub(0.5);
 	if (modeActive("easy")) sc = sc.plus(0.5);
+	if(modeActive("super_easy")) sc=sc.plus(4.5);
 	if (tmp.pathogens && player.pathogens.unl) sc = sc.plus(tmp.pathogens[8].eff());
 	return sc
 }
@@ -33,6 +35,7 @@ function getRocketEffect() {
 
 function getRocketGainMult() {
 	let mult = new ExpantaNum(1);
+	if(modeActive("super_easy"))mult=mult.times(3)
 	if (tmp.ach[34].has) mult = mult.times(1.1);
 	if (tmp.ach[15].has) mult = mult.times(1.05);
 	if (tmp.ach[26].has) mult = mult.times(1.1);

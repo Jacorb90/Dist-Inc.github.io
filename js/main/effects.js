@@ -8,6 +8,7 @@ function ach63Pow() {
 	let pow = new ExpantaNum(1)
 	if (tmp.ach) if (tmp.ach[74].has) pow = pow.times(1.75)
 	if (modeActive("easy")) pow = pow.times(2)
+	if(modeActive("super_easy")) pow=pow.times(1.5)
 	if (player.tr.upgrades.includes(24) && !HCCBA("noTRU") && modeActive("extreme")) pow = pow.times(1.75)
 	return pow
 }
